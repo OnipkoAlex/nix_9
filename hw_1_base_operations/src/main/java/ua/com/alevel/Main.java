@@ -2,8 +2,8 @@ package ua.com.alevel;
 
 import java.lang.String;
 import java.io.IOException;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+/*import java.util.regex.Pattern;
+import java.util.regex.Matcher;*/
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -63,8 +63,8 @@ public class Main {
     }
 
     static void charLetters() {
-        Pattern engRegex = Pattern.compile("[A-Za-z]");
-        Pattern rusRegex = Pattern.compile("[А-Яа-я]");
+/*        Pattern engRegex = Pattern.compile("[A-Za-z]");
+        Pattern rusRegex = Pattern.compile("[А-Яа-я]");*/
 
         String stringInput = new String();
         int arrSize = 0;
