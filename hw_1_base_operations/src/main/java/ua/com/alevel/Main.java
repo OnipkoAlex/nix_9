@@ -2,23 +2,28 @@ package ua.com.alevel;
 
 import java.lang.String;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) {
-        int menu;
-
-        Scanner input = new Scanner(System.in);
+        int menu = 0;
 
         do {
             System.out.println("1. Summarize numbers in String.");
             System.out.println("2. Count letters in String.");
             System.out.println("3. School task.");
             System.out.println("4. Exit.");
-            menu = input.nextInt();
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                menu = Integer.parseInt(reader.readLine());
+            } catch (Exception e) {
+                e.getStackTrace();
+            }
 
-            switch (menu)
-            {
+            switch (menu) {
                 case 1: {
                     charNumbers();
                     break;
@@ -28,22 +33,22 @@ public class Main {
                     break;
                 }
                 case 3: {
-                    lectionEnd();
+                    lessonEnd();
                     break;
                 }
             }
-        }while (menu < 4);
+        } while (menu < 4);
     }
 
     static void charNumbers() {
         int sumNumber = 0;
 
         String stringInput = new String();
-        Scanner input = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Enter string: ");
         try {
-            stringInput = input.nextLine();
+            stringInput = reader.readLine();
         } catch (Exception e) {
             e.getStackTrace();
         }
@@ -58,8 +63,10 @@ public class Main {
     }
 
     static void charLetters() {
+        Pattern engRegex = Pattern.compile("[A-Za-z]");
+        Pattern rusRegex = Pattern.compile("[А-Яа-я]");
+
         String stringInput = new String();
-        Scanner input = new Scanner(System.in);
         int arrSize = 0;
         int arrIter = 0;
         int valChange;
@@ -68,11 +75,12 @@ public class Main {
         System.out.println("Enter string: ");
 
         try {
-            stringInput = input.nextLine();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            stringInput = reader.readLine();
         } catch (Exception e) {
             e.getStackTrace();
         }
-
+        System.out.println(stringInput);
         char[] charArray = new char[stringInput.length()];
         stringInput.getChars(0, stringInput.length(), charArray, 0);
 
@@ -89,8 +97,7 @@ public class Main {
                     if (Character.compare(charLettersArr[j], charArray[i]) == 0) {
                         intOcurr[j]++;
                         break;
-                    }
-                    else {
+                    } else {
                         if (j == arrIter) {
                             charLettersArr[arrIter] = charArray[i];
                             intOcurr[arrIter] = 1;
@@ -120,20 +127,25 @@ public class Main {
         }
     }
 
-    static void lectionEnd() {
-        int lectionNumber;
-        int lectionEndHour;
-        int lectionEndMinute;
-        int lectionCounter;
+    static void lessonEnd() {
+        int lessonNumber = 0;
+        int lessonEndHour;
+        int lessonEndMinute;
+        int lessonCounter;
 
-        Scanner input = new Scanner(System.in);
+        System.out.println("Enter lesson number: ");
 
-        System.out.println("Enter lection number: ");
-        lectionNumber = input.nextInt();
-        lectionCounter = lectionNumber - 1;
-        lectionEndHour = (540 + lectionNumber * 45 + lectionCounter / 2 * 15 + (lectionCounter - lectionCounter / 2) * 5)/60;
-        lectionEndMinute = (540 + lectionNumber * 45 + lectionCounter / 2 * 5 + (lectionCounter - lectionCounter / 2) * 15) - lectionEndHour * 60;
-        System.out.println("Lection ends at: " + lectionEndHour + ":" + lectionEndMinute);
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            lessonNumber = Integer.parseInt(reader.readLine());
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        lessonCounter = lessonNumber - 1;
+        lessonEndHour = (540 + lessonNumber * 45 + lessonCounter / 2 * 15 + (lessonCounter - lessonCounter / 2) * 5) / 60;
+        lessonEndMinute = (540 + lessonNumber * 45 + lessonCounter / 2 * 5 + (lessonCounter - lessonCounter / 2) * 15) - lessonEndHour * 60;
+        System.out.println("Lesson ends at: " + lessonEndHour + ":" + lessonEndMinute);
         System.out.println();
     }
 }
