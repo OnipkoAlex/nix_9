@@ -30,14 +30,17 @@ public class hw_1_base_operations {
                 switch (menu) {
                     case 1: {
                         SummarizeNumbers.charNumbers();
+                        menu = 0;
                         break;
                     }
                     case 2: {
                         CountLetters.charLetters();
+                        menu = 0;
                         break;
                     }
                     case 3: {
                         LessonEnd.lessonEnd();
+                        menu = 0;
                         break;
                     }
                 }
