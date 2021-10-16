@@ -11,6 +11,7 @@
     <modules>
         <module>hw_1_base_operations</module>
         <module>hw_1_base_operations</module>
+        <module>hw_2_string_reverse</module>
     </modules>
 
     <properties>
