@@ -42,6 +42,10 @@ public class stringReverse {
     public static char[] reverse(String stringInput, int substringStart, int substringEnd, int wordsReverse) {
         char[] charArray = stringInput.toCharArray();
         int counter = 0;
+        int stringLength = 0;
+        int wordSubstringStart;
+        int wordSubstringEnd;
+        boolean notReversed = true;
         String substring = "";
 
         String[] words = stringInput.split("[ !\\\"\\\\#$%&'()*+,-./:;<=>?@\\\\[\\\\]^_`{|}~]+");
@@ -65,7 +69,25 @@ public class stringReverse {
             return charArray;
         }
         else {
+            for (int i = 0; i < words.length; i++) {
+                if (((stringLength + words[i].length() + 1) >= substringStart) && (notReversed)) {
+                    wordSubstringStart = substringStart - stringLength;
+                    words[i] = String.valueOf(reverse(words[i], wordSubstringStart, words[i].length(), 0));
+                    notReversed = false;
 
+                }
+                if ((stringLength + words[i].length() + 1) >= substringEnd) {
+                    wordSubstringEnd = substringEnd - stringLength + 1;
+                    words[i] = String.valueOf(reverse(words[i], 0, wordSubstringEnd, 0));
+                    break;
+                }
+                stringLength += (words[i].length() + 1);
+            }
+            stringInput = "";
+            for (int i = 0; i < words.length; i++) {
+                stringInput = stringInput + words[i] + " ";
+            }
+            charArray = stringInput.toCharArray();
         }
 
         return charArray;

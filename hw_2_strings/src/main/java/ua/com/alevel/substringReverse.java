@@ -9,7 +9,8 @@ public class substringReverse {
         String stringInput = "";
         String substringInput = "";
 
-        System.out.println("Enter string: ");
+        System.out.println("Enter string and substring to reverse: ");
+        System.out.println("e.g. Hello world, worl");
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -18,15 +19,15 @@ public class substringReverse {
             e.getStackTrace();
         }
 
-        System.out.println("Enter substring to reverse: ");
+        String[] words = stringInput.split("[ !\\\"\\\\#$%&'()*+,-./:;<=>?@\\\\[\\\\]^_`{|}~]+");
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            substringInput = reader.readLine();
-        } catch (Exception e) {
-            e.getStackTrace();
+        stringInput = "";
+        for (int i = 0; i < words.length - 1; i++) {
+            stringInput += words[i];
+            stringInput += " ";
         }
 
+        substringInput = words[words.length - 1];
         if (stringInput.equals(stringReverse.reverse(stringInput, substringInput))) {
             System.out.println("No matches found.");
         }
