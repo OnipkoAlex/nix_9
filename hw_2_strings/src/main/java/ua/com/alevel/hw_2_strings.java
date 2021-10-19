@@ -3,7 +3,7 @@ package ua.com.alevel;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class stringCustomReverse {
+public class hw_2_strings {
     public static void main(String[] args) {
         int menu = 0;
 
