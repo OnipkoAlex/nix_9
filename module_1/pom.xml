@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hw_3_start_oop</artifactId>
+    <artifactId>module_1</artifactId>
 
     <properties>
         <java.version>17</java.version>
