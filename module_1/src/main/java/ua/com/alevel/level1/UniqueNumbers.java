@@ -28,18 +28,15 @@ public class UniqueNumbers {
         }
 
         char[] charNumbersArr = new char[arrSize];
-        int[] intOcurr = new int[arrSize];
 
         for (int i = 0; i < stringInput.length(); i++) {
             if (Character.isDigit(charArray[i])) {
                 for (int j = 0; j <= arrIter; j++) {
                     if (Character.compare(charNumbersArr[j], charArray[i]) == 0) {
-                        intOcurr[j]++;
                         break;
                     } else {
                         if (j == arrIter) {
                             charNumbersArr[arrIter] = charArray[i];
-                            intOcurr[arrIter] = 1;
                             arrIter++;
                             break;
                         }
@@ -47,12 +44,7 @@ public class UniqueNumbers {
                 }
             }
         }
-
-        for (int i = 0; i < arrIter; i++) {
-            if (intOcurr[i] == 1) {
-                System.out.print(charNumbersArr[i] + " ");
-            }
-        }
+        System.out.print("Number of unique numbers: " + arrIter);
         System.out.println();
     }
 }
