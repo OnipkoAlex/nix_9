@@ -1,11 +1,10 @@
 package ua.com.alevel;
 
-import java.lang.String;
-import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 class LessonEnd {
+
     static void lessonEnd() {
         int lessonNumber = 0;
         int lessonEndHour;

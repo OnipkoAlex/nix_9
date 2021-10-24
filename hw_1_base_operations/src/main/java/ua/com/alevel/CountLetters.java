@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 class CountLetters {
+
     static void charLetters() {
         String stringInput = new String();
         int arrSize = 0;

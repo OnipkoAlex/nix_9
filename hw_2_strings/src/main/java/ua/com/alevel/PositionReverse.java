@@ -1,11 +1,11 @@
 package ua.com.alevel;
 
-import ua.com.alevel.custom.stringReverse;
+import ua.com.alevel.custom.StringReverse;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
-public class positionReverse {
+public class PositionReverse {
+
     static void startPositionReverse() {
         String stringInput = "";
         int substringStart = 0;
@@ -49,12 +49,12 @@ public class positionReverse {
 
         if ((words.length == 4) && (wordsReverse == 1)) {
             System.out.println("By words reverse chosen but only one word found. Starting simple reverse: ");
-            System.out.println(stringReverse.reverse(stringInput, substringStart, substringEnd + 1, 0));
+            System.out.println(StringReverse.reverse(stringInput, substringStart, substringEnd + 1, 0));
         }
         else {
             if (valid) {
                 if (wordsReverse == 0) substringEnd++;
-                System.out.println(stringReverse.reverse(stringInput, substringStart, substringEnd, wordsReverse));
+                System.out.println(StringReverse.reverse(stringInput, substringStart, substringEnd, wordsReverse));
             }
             else {
                 System.out.println("Invalid input.");

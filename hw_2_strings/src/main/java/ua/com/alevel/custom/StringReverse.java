@@ -3,7 +3,8 @@ package ua.com.alevel.custom;
 import java.lang.String;
 import java.util.Arrays;
 
-public class stringReverse {
+public class StringReverse {
+
     public static char[] reverse(String stringInput) {
         char[] charArray = stringInput.toCharArray();
         char[] charResult = new char[stringInput.length()];

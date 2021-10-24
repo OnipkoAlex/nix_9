@@ -1,10 +1,10 @@
 package ua.com.alevel;
 
-import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 class SummarizeNumbers {
+
     static void charNumbers() {
         int sumNumber = 0;
 

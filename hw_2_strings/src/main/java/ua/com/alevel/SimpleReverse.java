@@ -1,10 +1,11 @@
 package ua.com.alevel;
 
-import ua.com.alevel.custom.stringReverse;
+import ua.com.alevel.custom.StringReverse;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class simpleReverse {
+public class SimpleReverse {
+
     static void startSimpleReverse() {
         String stringInput = new String();
 
@@ -17,6 +18,6 @@ public class simpleReverse {
             e.getStackTrace();
         }
 
-        System.out.println(stringReverse.reverse(stringInput));
+        System.out.println(StringReverse.reverse(stringInput));
     }
 }

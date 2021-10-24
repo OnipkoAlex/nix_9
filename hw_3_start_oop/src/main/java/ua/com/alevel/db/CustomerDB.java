@@ -3,10 +3,10 @@ package ua.com.alevel.db;
 import ua.com.alevel.entity.Customer;
 
 public class CustomerDB {
+
     private final Customer[] customers;
     private static CustomerDB instance;
     private static int newCustomerId = 0;
-
 
     private CustomerDB() {
         customers = new Customer[100];
