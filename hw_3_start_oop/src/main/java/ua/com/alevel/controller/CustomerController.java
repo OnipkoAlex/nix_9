@@ -2,7 +2,6 @@ package ua.com.alevel.controller;
 
 import ua.com.alevel.entity.Customer;
 import ua.com.alevel.service.CustomerService;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,81 +38,105 @@ public class CustomerController {
 
     private static void crud(String position, BufferedReader reader) {
         switch (position) {
-            case "1" : create(reader); break;
-            case "2" : update(reader); break;
-            case "3" : delete(reader); break;
-            case "4" : findById(reader); break;
-            case "5" : findAll(reader); break;
-            case "6" : System.exit(0); break;
+            case "1":
+                create(reader);
+                break;
+            case "2":
+                update(reader);
+                break;
+            case "3":
+                delete(reader);
+                break;
+            case "4":
+                findById(reader);
+                break;
+            case "5":
+                findAll(reader);
+                break;
+            case "6":
+                System.exit(0);
+                break;
         }
         runNavigation();
     }
 
     private static void create(BufferedReader reader) {
         System.out.println("CustomerController.create");
-        try {
-            System.out.println("Please, enter customer's first name");
-            String firstName = reader.readLine();
-            System.out.println("Please, enter customer's second name");
-            String secondName = reader.readLine();
-            System.out.println("Please, enter customer's age");
-            String ageString = reader.readLine();
-            int age = Integer.parseInt(ageString);
-            Customer customer = new Customer();
-            customer.setAge(age);
-            customer.setFirstName(firstName);
-            customer.setSecondName(secondName);
-            customerService.create(customer);
-        } catch (IOException e) {
-            System.out.println("problem: = " + e.getMessage());
-        }
+        do {
+            try {
+                System.out.println("Please, enter customer's first name");
+                String firstName = reader.readLine();
+                System.out.println("Please, enter customer's second name");
+                String secondName = reader.readLine();
+                System.out.println("Please, enter customer's age");
+                String ageString = reader.readLine();
+                int age = Integer.parseInt(ageString);
+                Customer customer = new Customer();
+                customer.setAge(age);
+                customer.setFirstName(firstName);
+                customer.setSecondName(secondName);
+                customerService.create(customer);
+                break;
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("problem: = " + e.getMessage());
+            }
+        } while (true);
     }
 
     private static void update(BufferedReader reader) {
         System.out.println("CustomerController.update");
-        try {
-            System.out.println("Please, enter customer's id");
-            String idString = reader.readLine();
-            System.out.println("Please, enter customer's first name");
-            String firstName = reader.readLine();
-            System.out.println("Please, enter customer's second name");
-            String secondName = reader.readLine();
-            System.out.println("Please, enter customer's age");
-            String ageString = reader.readLine();
-            int age = Integer.parseInt(ageString);
-            int id = Integer.parseInt(idString);
-            Customer customer = new Customer();
-            customer.setId(id);
-            customer.setFirstName(firstName);
-            customer.setSecondName(secondName);
-            customer.setAge(age);
-            customerService.update(customer);
-        } catch (IOException e) {
-            System.out.println("problem: = " + e.getMessage());
-        }
+        do {
+            try {
+                System.out.println("Please, enter customer's id");
+                String idString = reader.readLine();
+                System.out.println("Please, enter customer's first name");
+                String firstName = reader.readLine();
+                System.out.println("Please, enter customer's second name");
+                String secondName = reader.readLine();
+                System.out.println("Please, enter customer's age");
+                String ageString = reader.readLine();
+                int age = Integer.parseInt(ageString);
+                int id = Integer.parseInt(idString);
+                Customer customer = new Customer();
+                customer.setId(id);
+                customer.setFirstName(firstName);
+                customer.setSecondName(secondName);
+                customer.setAge(age);
+                customerService.update(customer);
+                break;
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("problem: = " + e.getMessage());
+            }
+        } while (true);
     }
 
     private static void delete(BufferedReader reader) {
         System.out.println("CustomerController.delete");
-        try {
-            System.out.println("Please, enter id");
-            int id = Integer.parseInt(reader.readLine());;
-            customerService.delete(id);
-        } catch (IOException e) {
-            System.out.println("problem: = " + e.getMessage());
-        }
+        do {
+            try {
+                System.out.println("Please, enter id");
+                int id = Integer.parseInt(reader.readLine());
+                customerService.delete(id);
+                break;
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("problem: = " + e.getMessage());
+            }
+        }while (true);
     }
 
     private static void findById(BufferedReader reader) {
         System.out.println("CustomerController.findById");
-        try {
-            System.out.println("Please, enter id");
-            int id = Integer.parseInt(reader.readLine());
-            Customer customer = customerService.findById(id);
-            System.out.println("customer = " + customer);
-        } catch (IOException e) {
-            System.out.println("problem: = " + e.getMessage());
-        }
+        do {
+            try {
+                System.out.println("Please, enter id");
+                int id = Integer.parseInt(reader.readLine());
+                Customer customer = customerService.findById(id);
+                System.out.println("customer = " + customer);
+                break;
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("problem: = " + e.getMessage());
+            }
+        }while (true);
     }
 
     private static void findAll(BufferedReader reader) {
