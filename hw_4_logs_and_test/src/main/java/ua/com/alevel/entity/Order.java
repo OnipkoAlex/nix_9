@@ -2,7 +2,7 @@ package ua.com.alevel.entity;
 
 public class Order extends BaseEntity {
 
-    private Integer orderId;
+    private String orderId;
     private String firstName;
     private String lastName;
     private String type;
@@ -11,11 +11,11 @@ public class Order extends BaseEntity {
     private String color;
     private Integer price;
 
-    public Integer getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Integer orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
@@ -77,15 +77,14 @@ public class Order extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "orderId=" + orderId +
+        return "Order: " +
+                "orderId='" + orderId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", type='" + type + '\'' +
                 ", width=" + width +
                 ", height=" + height +
                 ", color='" + color + '\'' +
-                ", price=" + price +
-                '}';
+                ", price=" + price + "$";
     }
 }

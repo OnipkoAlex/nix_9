@@ -23,9 +23,10 @@ public class Access extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Access{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "Credentials: " +
+                "Client id='" + super.getId() + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'';
+
     }
 }

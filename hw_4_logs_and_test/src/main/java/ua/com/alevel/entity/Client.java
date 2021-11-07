@@ -41,11 +41,11 @@ public class Client extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "firstName='" + firstName + '\'' +
+        return "Client: " +
+                "id='" + super.getId() + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+                ", phone='" + phone + '\'';
     }
 }

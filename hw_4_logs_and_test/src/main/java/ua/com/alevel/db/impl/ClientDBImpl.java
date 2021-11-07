@@ -3,14 +3,15 @@ package ua.com.alevel.db.impl;
 import ua.com.alevel.db.ClientDB;
 import ua.com.alevel.entity.Client;
 
-public final class ClientDBImpl implements ClientDB {
+public class ClientDBImpl implements ClientDB {
 
-    private final Client[] clients;
+    private Client[] clients;
     private static ClientDBImpl instance;
     private int nextClientId = 0;
+    private int capacity = 10;
 
     private ClientDBImpl() {
-        clients = new Client[100];
+        clients = new Client[capacity];
     }
 
     public static ClientDBImpl getInstance() {
@@ -21,9 +22,19 @@ public final class ClientDBImpl implements ClientDB {
     }
 
     public void create(Client client) {
-        client.setId(nextClientId);
-        clients[nextClientId] = client;
-        nextClientId++;
+        if (nextClientId == capacity) {
+            Client[] clientCopyArr = new Client[capacity * 2];
+            for (int i = 0; i < nextClientId; i++) {
+                clientCopyArr[i] = clients[i];
+            }
+            clients = clientCopyArr;
+            clients[nextClientId] = client;
+            nextClientId++;
+            capacity *= 2;
+        } else {
+            clients[nextClientId] = client;
+            nextClientId++;
+        }
     }
 
     public void update(Client client) {
@@ -34,23 +45,33 @@ public final class ClientDBImpl implements ClientDB {
         current.setPhone(client.getPhone());
     }
 
-    public void delete(Integer id) {
-        for (int i = id; i < nextClientId - 1; i++) {
-            clients[i] = clients[i + 1];
-            clients[i].setId(clients[i].getId() - 1);
+    public void delete(String id) {
+        for (int i = 0; i < nextClientId; i++) {
+            if (clients[i].getId().equals(id)) {
+                for (int j = i; j < nextClientId - 1; j++) {
+                    clients[j] = clients[j + 1];
+                }
+                break;
+            }
         }
         nextClientId--;
     }
 
-    public Client findById(Integer id) {
-        return clients[id];
-    }
-
-    public int sizeOf() {
-        return nextClientId;
+    public Client findById(String id) {
+        for (int i = 0; i < nextClientId; i++) {
+            if (clients[i].getId().equals(id)) {
+                return clients[i];
+            }
+        }
+        return null;
     }
 
     public Client[] findAll() {
         return clients;
+    }
+
+    @Override
+    public int sizeOf() {
+        return nextClientId;
     }
 }
