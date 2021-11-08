@@ -99,6 +99,19 @@ public class AccessAndClientServiceTest {
 
         Assertions.assertEquals("Sol", client.getLastName());
     }
+    @Order(7)
+    @Test
+    public void shouldBeDeleteAllAccessAndClients() {
+        Access[] accesses = accessService.findAll();
+
+        while (accessService.sizeOf() != 0) {
+            accessService.delete(accesses[0].getId());
+        }
+
+        Assertions.assertEquals(0, accessService.sizeOf());
+        Assertions.assertEquals(0, clientService.sizeOf());
+    }
+
 
     private String getRandomIdFromClients() {
         Client[] clients = clientService.findAll();

@@ -1,8 +1,8 @@
 package ua.com.alevel.lib;
 
-public class MathSet<Number> {
+public class SetOld<Type> {
 
-    private Number[] mathSetArr;
+    private Type[] mathSetArr;
     private int iterator = 0;
     private int capacity = 0;
     private int size = 10;
@@ -11,22 +11,22 @@ public class MathSet<Number> {
         mathSetArr = (Number[]) new Number[size];
     }*/
 
-    public MathSet(int capacity) {
+    public SetOld(int capacity) {
         this.capacity = capacity;
-        mathSetArr = (Number[]) new MathSet[size];
+        mathSetArr = (Type[]) new SetOld[size];
     }
 
-    public MathSet(Number[] numbers) {
-        mathSetArr = (Number[]) new MathSet[size];
+    public SetOld(Type[] numbers) {
+        mathSetArr = (Type[]) new SetOld[size];
         for (int i = 0; i < numbers.length; i++) {
             add(numbers[i]);
         }
     }
 
-    public void add(Number number) {
+    public void add(Type number) {
         if (capacity == 0) {
             if (iterator == size) {
-                Number[] copyMathSetArray = (Number[]) new MathSet[size*2];
+                Type[] copyMathSetArray = (Type[]) new SetOld[size*2];
                 mathSetArr = copyMathSetArray;
                 mathSetArr[iterator] = number;
                 iterator++;
@@ -39,7 +39,7 @@ public class MathSet<Number> {
         } else if (capacity > 0) {
             if (iterator < capacity) {
                 if (iterator == size) {
-                    Number[] copyMathSetArray = (Number[]) new MathSet[size*2];
+                    Type[] copyMathSetArray = (Type[]) new SetOld[size*2];
                     mathSetArr = copyMathSetArray;
                     mathSetArr[iterator] = number;
                     iterator++;
@@ -54,13 +54,13 @@ public class MathSet<Number> {
         } else throw new IllegalArgumentException("Capacity < 0");
     }
 
-    public void add(Number... number) {
-        for (Number i : number) {
+    public void add(Type... number) {
+        for (Type i : number) {
             add(i);
         }
     }
 
-    public Number[] toArray() {
+    public Type[] toArray() {
         return mathSetArr;
     }
 
