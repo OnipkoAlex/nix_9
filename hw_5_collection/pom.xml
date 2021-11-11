@@ -32,7 +32,7 @@
     </properties>
 
     <build>
-        <finalName>hw_3_start_oop</finalName>
+        <finalName>hw_5_collection</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -57,7 +57,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>ua.com.alevel.StartOOPMain</mainClass>
+                                    <mainClass>ua.com.alevel.CollectionMain</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
