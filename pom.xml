@@ -17,6 +17,8 @@
         <module>hw_5_collection</module>
         <module>collection</module>
         <module>hw_6_exception</module>
+        <module>hw_7_ionio</module>
+        <module>unit_ionio</module>
     </modules>
 
     <properties>
