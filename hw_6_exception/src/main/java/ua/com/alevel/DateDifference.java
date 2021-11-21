@@ -31,6 +31,9 @@ public class DateDifference {
         else return dateOne;
     }
 
+    /**
+     * ну что это за зло - выноси это в константы как статики или енамы
+     * */
     public static Long dateToMilliseconds(Date date) {
         return (31557600000L * date.getYear() + 2629800000L * date.getMonth() + 86400000L * date.getDay() + 3600000L * date.getHour() + 60000L * date.getMinute() + 1000L * date.getSecond() + date.getMillisecond());
     }

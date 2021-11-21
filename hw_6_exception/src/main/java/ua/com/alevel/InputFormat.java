@@ -65,6 +65,9 @@ public class InputFormat {
         }
     }
 
+    /**
+     * ну что это за зло - выноси это в константы как статики или енамы
+     * */
     public static Boolean isValidDate(Date date) {
         int[] bigMonth = {2, 4, 6, 9, 11};
         if (date == null) return false;

@@ -11,7 +11,6 @@ public class FileToObject {
     private static List<String> output = new ArrayList<>();
     private static List<String[]> finalList = new ArrayList<>();
 
-
     public static List runFileToObject(Path path) {
         output.clear();
         finalList.clear();

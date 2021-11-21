@@ -100,6 +100,9 @@ public class IncreaseDecreaseDate {
             }
             int value = increase();
 
+            /**
+             * ну что это за зло - выноси это в константы как статики или енамы
+             * */
             switch (menu) {
                 case "1": {
                     if (DateDifference.dateToMilliseconds(date) - value * 31557600000L > 0) OutputFormat.dateOutput(DateDifference.millisecondsToDate(DateDifference.dateToMilliseconds(date) - value * 31557600000L));
