@@ -14,8 +14,8 @@ import java.util.List;
 
 public class DateFormat {
 
-    private static final Path path = Paths.get("module_2/inputDatesFormat.txt");
-    private static final Path pathOut = Paths.get("module_2/outputDatesFormat.txt");
+    private static final Path path = Paths.get("inputDatesFormat.txt");
+    private static final Path pathOut = Paths.get("outputDatesFormat.txt");
 
     public static void isValidFormat() {
         List<String> list = FileToStringList.fileToStringList(path);

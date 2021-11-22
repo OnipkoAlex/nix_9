@@ -11,8 +11,8 @@ import java.util.*;
 
 public class Graphs {
 
-    private static final Path path = Paths.get("module_2/inputGraphs.txt");
-    private static final Path pathOut = Paths.get("module_2/outputGraphs.txt");
+    private static final Path path = Paths.get("inputGraphs.txt");
+    private static final Path pathOut = Paths.get("outputGraphs.txt");
 
     private static List<Vertex> nodes = new ArrayList<>();
     private static List<Edge> edges = new ArrayList<>();
