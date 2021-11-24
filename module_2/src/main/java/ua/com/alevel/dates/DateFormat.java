@@ -48,12 +48,10 @@ public class DateFormat {
                 try {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formats);
                     if (GenericValidator.isDate(line, formats, true)) {
-                        System.out.println("Yes = " + line);
                         ld = LocalDate.parse(line, formatter);
                         result = ld.format(outFormat) + "\n";
                         Files.write(pathOut, result.getBytes(), StandardOpenOption.APPEND);
                     }
-                    System.out.println("No = " + line);
                 } catch (DateTimeParseException e) {
                     e.getErrorIndex();
                 } catch (IOException e) {
