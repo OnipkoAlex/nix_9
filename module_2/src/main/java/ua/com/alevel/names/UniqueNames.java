@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UniqueNames {
-    private static final Path path = Paths.get("inputNames.txt");
+    private static final Path path = Paths.get("module_2/inputNames.txt");
 
     public static void runUniqueNames() {
         List<String> list = FileToStringList.fileToStringList(path);

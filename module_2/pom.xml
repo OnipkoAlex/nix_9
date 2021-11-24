@@ -21,6 +21,14 @@
         <maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.6</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>module_2</finalName>
         <plugins>

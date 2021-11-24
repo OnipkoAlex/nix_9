@@ -1,5 +1,6 @@
 package ua.com.alevel.dates;
 
+import org.apache.commons.validator.GenericValidator;
 import ua.com.alevel.util.FileToStringList;
 
 import java.io.IOException;
@@ -14,15 +15,15 @@ import java.util.List;
 
 public class DateFormat {
 
-    private static final Path path = Paths.get("inputDatesFormat.txt");
-    private static final Path pathOut = Paths.get("outputDatesFormat.txt");
+    private static final Path path = Paths.get("module_2/inputDatesFormat.txt");
+    private static final Path pathOut = Paths.get("module_2/outputDatesFormat.txt");
 
     public static void isValidFormat() {
         List<String> list = FileToStringList.fileToStringList(path);
         if (list == null) return;
 
         LocalDate ld;
-        String[] format = {"dd/MM/yyyy", "MM/dd/yyyy", "yyyy/MM/dd", "dd-MM-yyyy", "MM-dd-yyyy", "yyyy-MM-dd"};
+        String[] format = {"dd/MM/yyyy", "yyyy/MM/dd", "MM-dd-yyyy"};
         DateTimeFormatter outFormat = DateTimeFormatter.ofPattern("yyyyMMdd");
         String result;
 
@@ -46,9 +47,13 @@ public class DateFormat {
             for (String formats : format) {
                 try {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern(formats);
-                    ld = LocalDate.parse(line, formatter);
-                    result = ld.format(outFormat) + "\n";
-                    Files.write(pathOut, result.getBytes(), StandardOpenOption.APPEND);
+                    if (GenericValidator.isDate(line, formats, true)) {
+                        System.out.println("Yes = " + line);
+                        ld = LocalDate.parse(line, formatter);
+                        result = ld.format(outFormat) + "\n";
+                        Files.write(pathOut, result.getBytes(), StandardOpenOption.APPEND);
+                    }
+                    System.out.println("No = " + line);
                 } catch (DateTimeParseException e) {
                     e.getErrorIndex();
                 } catch (IOException e) {
