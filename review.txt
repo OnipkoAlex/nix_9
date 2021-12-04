@@ -9,3 +9,11 @@ hw_7 = 9
 
 чего в помнике hw_7 лежит куча лишнего
 тестов же нет, логов также
+
+
+module_2/src/main/java/ua/com/alevel/dates/DateFormat.java:18
+module_2/src/main/java/ua/com/alevel/dates/DateFormat.java:19
+что это за безобразие???
+я надеюсь ты понимаешь о чем я)
+
+module_2 = 9
